@@ -5,7 +5,7 @@ Vitadock OAuth dance Python Client Implementation
 ```python
 import vitadock
 
-c = vitadock.VitadockOauthClient("APP_KEY_GOES HERE","APP_SECRET_GOES_HERE")
+c = vitadock.VitadockOauthClient("APP_KEY_GOES_HERE","APP_SECRET_GOES_HERE")
 
 c.getRequestTokens()
 
@@ -14,7 +14,7 @@ print "access token secret:", c.request_token_secret
 
 print "GOTO: " + c.authorization_url + "?oauth_token=" + c.request_token
 
-verifier = raw_input("What is the verifier? (second line)")
+verifier = raw_input("What is the verifier? (see callback url)")
 
 c.getAccessTokens(verifier)
 
