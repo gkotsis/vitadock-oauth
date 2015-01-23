@@ -20,7 +20,7 @@ c.getAccessTokens(verifier)
 
 print "access token:", c.access_token
 print "access token secret:", c.access_token_secret
-```python
+```
 
 
 Requirements
