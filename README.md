@@ -9,8 +9,8 @@ c = vitadock.VitadockOauthClient("APP_KEY_GOES_HERE","APP_SECRET_GOES_HERE")
 
 c.getRequestTokens()
 
-print "access token:", c.request_token
-print "access token secret:", c.request_token_secret
+print "request token:", c.request_token
+print "request token secret:", c.request_token_secret
 
 print "GOTO: " + c.authorization_url + "?oauth_token=" + c.request_token
 
