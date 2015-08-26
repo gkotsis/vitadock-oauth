@@ -11,14 +11,17 @@ import urllib
 from vitadock.utils import generate_timestamp, generate_nonce
 
 
+API_ENDPOINT = "https://cloud.vitadock.com"
+API_ENDPOINT_TEST = "https://test-cloud.vitadock.com"
+
+
 class VitadockOauthClient(object):
-	API_ENDPOINT = "https://cloud.vitadock.com"
+	def __init__(self, app_key, app_secret, request_token=None,request_token_secret=None, test=False):
+		endpoint = API_ENDPOINT_TEST if test else API_ENDPOINT
+		self.request_token_url = "%s/auth/unauthorizedaccesses" % endpoint
+		self.access_token_url = "%s/auth/accesses/verify" % endpoint
+		self.authorization_url = "%s/desiredaccessrights/request" % endpoint
 
-	request_token_url = "%s/auth/unauthorizedaccesses" % API_ENDPOINT
-	access_token_url = "%s/auth/accesses/verify" % API_ENDPOINT
-	authorization_url = "%s/desiredaccessrights/request" % API_ENDPOINT
-
-	def __init__(self, app_key, app_secret, request_token=None,request_token_secret=None):
 		self.app_key = app_key
 		self.app_secret = app_secret
 		self.request_token = request_token
